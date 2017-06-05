@@ -1,0 +1,144 @@
+\documentclass{article}
+
+\usepackage[left=2.5 cm,right=2.5 cm,top=2.5 cm,bottom=2.5 cm,a4paper]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage{verbatim}
+\usepackage{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{subfig}
+
+\usepackage{tikz}
+\newcommand\mybox[2][]{\tikz[overlay]\node[fill=blue!20,inner sep=2pt, anchor=text, rectangle, rounded corners=1mm,#1] {#2};\phantom{#2}}
+
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\author{•}
+
+\title{MSiA 400 Lab Assignment 4} % delete the word ``Template'' from your submission
+
+\date{Nov 17, 2016}
+
+
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+\item Due: 11:00 AM Nov 30, 2016
+\item This is an open book assignment. 
+\item Using package is allowed only to calculate (\rmnum{1}) the power of matrix and (\rmnum{2}) the solution of equation system.
+\item Please submit one report file (*.pdf, *.doc, *.docx): for each problem, attach (1) short answer if necessary, (2) \underline{every single line} of codes you ran, (3) \underline{output}.
+\end{itemize}
+\vspace{0.5cm}
+
+
+\subsection*{Problem 1}
+
+In \textit{Markov100.txt}, the one step transition probability matrix for a Markov chain with 100 states (State 1 to State 100) is given. Note that the data has \underline{no heading}.
+\vspace{0.2cm}
+
+\begin{tabular}{ll}
+Name of the data set & Markov100\\
+Number of rows & 100\\
+Number of columns & 100
+\end{tabular}
+
+
+\subsubsection*{Problem 1(a)}
+Suppose we are at State 1 now. Find and display the probability of being in State 5 after 10 transitions. 
+
+
+
+
+
+
+\subsubsection*{Problem 1(b)}
+Suppose we are at one of States 1,2, and 3 with equal probabilities. Find and display the probability of being in State 10 after 10 transitions.
+
+
+
+\subsubsection*{Problem 1(c)}
+Find the steady state probability of being in State 1.
+
+
+
+
+\subsubsection*{Problem 1(d)}
+Find the mean first passage time from State 1 to State 100.
+
+
+
+\subsection*{Problem 2}
+You are asked to analyze the data from an website with 8 pages (Page 1 - Page 8). Let us assume that there is a virtual page (Page 9) that a visitor must automatically visit when the visitor leaves the website. The visitors always start their visit from Page 1. Let us formulate a Markov chain for this website. The states are defined as 
+\begin{center}
+$S_i$ = visitor is at Page $i$, $i=1,\cdots,9$.
+\end{center}
+For example, suppose that a visitor enters the website (hence visit Page 1), moves to Page 3, Page 5, and then leave the website, sequentially. Then, the user visits States $S_1,S_3,S_5$, and $S_9$, sequentially.
+
+Please find the attached data \textit{webtraffic.txt}. The data includes the record of 1000 visitors (rows). The data has 81 columns labeled as $t11,t12,\cdots,t19,t21,t22,\cdots,t29,\cdots,t91,t92,\cdots,t99$. The label $t_{ij}$ represents the transition from State $i$ to State $j$, for $i=1,\cdots,9$ and $j=1,\cdots,9$. For example, $t12$ is the transition from State 1 to State 2, and $t84$ is the transition from State 8 to State 4. For each visitor (row), it has 1 for column $t_{ij}$ if the visitor makes transition from State $i$ to State $j$, and it has 0 elsewhere. For example, if a visitor visits States $S_1,S_3,S_5$, and $S_9$, sequentially, then the corresponding row has 1 for columns $t13,t35,t59$ and 0 elsewhere.
+
+The summary of the data set is below.
+\vspace{0.2cm}
+
+\begin{tabular}{ll}
+Name of the data set & webtraffic\\
+Type of data & binaries (0,1)\\
+Number of rows & 1000\\
+Number of columns & 81
+\end{tabular}
+
+
+\subsubsection*{Problem 2(a)}
+Construct 9 by 9 matrix \textsf{Traffic} that counts total traffic between State $i$ to State $j$ for all $i=1,\cdots,9$ and $j=1,\cdots,9$. Display \textsf{Traffic}.
+
+\noindent \textit{Hint} \textsf{colSums()} adds all rows for each column.
+
+
+
+\subsubsection*{Problem 2(b)}
+Observe that \textsf{Traffic} has 0's in row 9 and 0's in column 1. Set \textsf{Traffic}[9,1]=1000.  Construct the one step transition probability matrix \textsf{P} and display it.
+
+
+
+\subsubsection*{Problem 2(c)}
+Calculate and display the steady state probability vector \textsf{Pi}.
+
+
+
+
+
+
+\subsubsection*{Problem 2(d)}
+The following table presents the average time that the visitors spend on each page.
+\vspace{0.3cm}
+
+\begin{tabular}{|l|llllllll|}
+\hline
+Page & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\ \hline
+Avg(minute) & 0.1 & 2 & 3 & 5 & 5 & 3 & 3 & 2 \\  \hline
+\end{tabular}
+\vspace{0.3cm}
+
+\noindent Calculate and display the average time a visitor spend on the website (until she leaves).
+
+
+
+\subsubsection*{Problem 2(e)}
+In the output of Problem 2(c), observe that Pages 3 and 4 are one of the most crowded pages except Pages 1 and 9. To balance the traffic, the owner of the website decided to create links from Page 2 to Pages 6,7 (hence, from State 2 to States 6,7). By adding the links, the owner anticipates that, from Page 2, 30\% of the current outgoing traffic to State 3 would move to State 6, and 20\% of the current outgoing traffic to State 4 would move to State 7. Calculate new steady state probability vector \textsf{Pi2} to check the effect of the new links. Decide if the link helped balancing the traffic by comparing the variance of \textsf{Pi} and \textsf{Pi2}.
+
+\noindent \textit{Hint} Start with matrix \textsf{Traffic} from Problem 2(a).
+
+
+
+\end{document}
