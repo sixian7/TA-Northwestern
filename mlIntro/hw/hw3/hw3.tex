@@ -1,0 +1,138 @@
+\documentclass{article}
+
+\usepackage[left=2.5 cm,right=2.5 cm,top=2.5 cm,bottom=2.5 cm,a4paper]{geometry}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage{verbatim}
+%\usepackage{multirow}
+%\usepackage{framed}
+\usepackage{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{subfig}
+
+\usepackage{tikz}
+\newcommand\mybox[2][]{\tikz[overlay]\node[fill=blue!20,inner sep=2pt, anchor=text, rectangle, rounded corners=1mm,#1] {#2};\phantom{#2}}
+
+\makeatletter
+\newcommand{\rmnum}[1]{\romannumeral #1}
+\newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\author{•}
+
+\title{MSiA 400 Lab Assignment 3} % delete the word ``Template'' from your submission
+
+\date{Nov 5, 2016}
+
+
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+\item Due: 11:00am Nov 16, 2016
+\item This is an open book assignment. 
+\item Please submit one report file that includes : short answer, related code and print for each problem if necessary.
+\end{itemize}
+\vspace{0.5cm}
+
+
+
+
+\subsection*{Problem 1}
+Data set \textit{bostonhousing.txt}, created by Harrison and Rubinfeld [1978], concerns housing values in suburbs of Boston. The attributes include
+\vspace{0.3cm}
+
+\begin{tabular}{ll}
+ MEDV & Median value of owner-occupied homes in \$1000's\\
+ CRIM & per capita crime rate by town\\
+ ZN & proportion of residential land zoned for lots over 25,000 sq.ft.\\
+ INDUS & proportion of non-retail business acres per town\\
+ CHAS & Charles River dummy variable (= 1 if tract bounds river; 0 otherwise)\\
+ NOX & nitric oxides concentration (parts per 10 million) \\
+ RM & average number of rooms per dwelling\\
+ AGE & proportion of owner-occupied units built prior to 1940\\
+ DIS & weighted distances to five Boston employment centres\\
+ RAD & index of accessibility to radial highways\\
+ TAX & full-value property-tax rate per \$10,000\\
+ PTRATIO & pupil-teacher ratio by town\\
+ B & 1000$(Bk - 0.63)^2$ where $Bk$ is the proportion of blacks by town\\
+ LSTAT & \% lower status of the population, \\
+\end{tabular}
+\vspace{0.3cm}
+
+\noindent in which MEDV is the response variable. The summary of the data set is below.
+\vspace{0.3cm}
+
+\begin{tabular}{lll}
+Name of the data set & bostonhousing\\
+Number of observations & 506 & \\
+Number of attributes & 14  (1 response variable and 13 explanatory variables)\\ 
+\end{tabular}
+
+
+
+
+\subsubsection*{Problem 1(a)}
+Build regression model \textsf{reg} and display \textsf{summary()} of the model. Pick two explanatory variables that are least likely to be in the best model, and support your suggestion in one sentence. 
+
+
+
+
+\subsubsection*{Problem 1(b)}
+Build regression model \textsf{reg.picked} by excluding the two explanatory variables selected in problem 1(a). Display \textsf{summary()} of the model.
+
+
+
+\subsubsection*{Problem 1(c)}
+For a regression model, the mean squared error (MSE) is defined as $\frac{SSE}{n-1-p}$, in which $p$ is the number of explanatory variables used in the model. The mean absolute error (MAE) is similarly defined: $\frac{SAE}{n-1-p}$. Display $MSE$ and $MAE$ for regression models \textsf{reg} and \textsf{reg.picked} from the previous problems. Based on $MSE$ and $MAE$, pick one model you prefer.
+
+
+
+\subsubsection*{Problem 1(d)}
+Run \textsf{step()} using regression model \textsf{reg} in problem 1(a). Compare the model with \textsf{reg.picked} in problem 1(b).
+
+
+
+
+
+\vspace{1cm}
+
+\subsection*{Problem 2}
+Import \textit{labdata.txt}. The summary of the data set is below.
+\vspace{0.3cm}
+
+\begin{tabular}{lll}
+Name of the data set & labdata\\
+Number of observations & 400  \\
+Number of attributes & 9 (1 response variable and 8 explanatory variables)\\ 
+\end{tabular}
+\vspace{0.3cm}
+
+\noindent Column \textsf{y} is the response variable and remaining attributes \textsf{x1,x2,...} are the explanatory variables.
+
+
+\subsubsection*{Problem 2(a)}
+Build regression model \textsf{reg} and display \textsf{summary()} of the model
+
+
+
+\subsubsection*{Problem 2(b)}
+For each explanatory variable, plot it against the response variable. Based on the scartter plots, pick one variable that is most likely to be used in a piecewise regression model. Attach one plot associated with the variable you pick.
+
+
+\subsubsection*{Problem 2(c)}
+Calculate the mean of the variable you pick in problem 2(b) and build piecewise regression model \textsf{reg.piece} using the mean. Is model \textsf{reg.piece} better than model \textsf{reg} in problem 2(a)? Support your argument in one sentence.
+
+
+
+\subsection*{Reference}
+David Harrison and Daniel L Rubinfeld. Hedonic housing prices and the demand for clean air. Journal of environmental economics and management, 5(1):81–102, 1978.
+\end{document}
