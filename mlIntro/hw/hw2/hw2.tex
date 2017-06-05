@@ -1,0 +1,111 @@
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm}
+\usepackage{amsmath}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\date{}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\title{\uline{MSiA-400 Analytics for Competitive Advantage}\\
+Lab Exercise \#2}
+
+\date{Oct 22, 2016}
+
+
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}
+\item Due: 11:00am Nov 2, 2016
+\item This is an open book assignment. 
+\item Please submit one report file that includes : short answer, related code and print for each problem if necessary.
+\end{itemize}
+\vspace{0.5cm}
+
+\item The redwine data includes 11 input (explanatory or independent) variables and 1 output (response or dependent) variable for regression analysis. The 11 explanatory variables include: 
+\vspace{0.2cm}
+
+\begin{tabular}{l}
+fixed acidity(FA), volatile acidity(VA), citric acid(CA), residual sugar(RS),\\
+chlorides(CH), free sulfur dioxide(FS), total sulfur dioxide(SD), density(DE),\\
+pH(PH), sulphates(SU), and alcohol(AL).
+\end{tabular}
+\vspace{0.2cm}
+
+\noindent The output variable is quality(QA) (score between 0 and 10).
+
+\vspace{0.2cm}
+\noindent Please find the attached data file \textit{redwine.txt} which contains missing values in attributes SD and RS. The summary of the data set is following.
+\vspace{0.2cm}
+
+\begin{tabular}{|l|l|}
+\hline
+Name of the data set & redwine\\ \hline
+Number of columns &  12 (11 explanatory variables and 1 response variable)\\ \hline
+Number of observations & 1599\\ \hline
+Number of missing values & 39 (22 in RS and 17 in SD)\\ \hline
+\end{tabular}
+\vspace{0.2cm}
+
+\noindent Answer the following questions.
+
+\subsection*{Problem 1}
+Recall that RS and SD have missing values. Calculate the averages of RS and SD by ignoring the missing values.
+
+\subsection*{Problem 2}
+After correlation analysis, Mr. Klabjan observed that there exists a significant correlation between SD and FS. Create vectors of SD.obs and FS.obs by omitting observations with missing values in SD. Build (simple) linear regression model to estimate SD.obs using FS.obs. That is, SD.obs is used as response variable and FS.obs is used as explanatory variable for the regression analysis. Print out the coefficients of the regression model. 
+
+\noindent \textit{Hint}: If you save the output from \textsf{lm} function to \textsf{ABC}, then the coefficients of the regression model can be obtained by \textsf{coefficients(ABC)}.
+
+
+\subsection*{Problem 3}
+Create a vector (of length 17) of estimated SD values using the regression model in Problem 2 and FS values of the observations with missing SD values. Impute missing values of SD using the created vector. Print out the average of SD after the imputation.
+
+\subsection*{Problem 4}
+Mr. Klabjan decided RS is not significantly correlated to other attributes. Impute missing values of RS using the average value imputation method from the lab. Print out the average of RS after the imputation.
+\vspace{0.3cm}
+
+
+
+\subsection*{Problem 5}
+We have imputed all missing values in the data set. Build multiple linear regression model for the new data set and save it as \textsf{winemodel}. Print out the coefficients of the regression model. 
+
+\noindent \textit{Hint 1}: built multiple linear regression by \textsf{winemodel = lm(redwine\$QA$\sim$redwine\$FA+...+redwine\$AL)}
+
+
+
+
+
+\subsection*{Problem 6}
+Print out the summary of the model. Pick one attribute that is least likely to be related to QA based on p-values.
+
+
+\subsection*{Problem 7}
+Perform 5-fold cross validation for the model you just built. Print out the average error rate.
+
+
+
+\subsection*{Problem 8}
+Mr. Klabjan is informed that the attribute picked in Problem 6 actually contains outliers. Calculate the average $\mu$ and standard deviation $\sigma$ of the selected attribute. Create a new data set after removing observations that is outside of the range $[\mu-3\sigma, \mu+3\sigma]$ and name the data set as  \textsf{redwine2}. Print out the dimension of \textsf{redwine2} to know how many observations are removed.
+
+
+
+\subsection*{Problem 9}
+Build regression model \textsf{winemodel2} using the new data set from Problem 8 and print out the summary. Compare this model with the model obtained in Problem 6 and decide which one is better. Pick 5 attributes that is most likely to be related to QA based on p-values.
+
+
+\bibliographystyle{plainnat}
+\bibliography{Assign2}
+\end{document}
