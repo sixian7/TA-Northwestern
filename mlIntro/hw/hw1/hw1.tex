@@ -1,0 +1,51 @@
+%% LyX 2.1.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm}
+\usepackage{amsmath}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\date{}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\title{\uline{MSiA-400 Analytics for Competitive Advantage}\\
+Lab Exercise \#1}
+
+
+\author{\textbf{\normalsize{}Due Date: Monday, October 17, 11:00 am}}
+
+\maketitle
+\uline{EXERCISE INSTRUCTIONS}: Q1 submit graph and R script; Q2 submit your R script only
+\begin{enumerate}
+\item Create line charts for the following three functions on the same set
+of axes:
+
+\begin{enumerate}
+\item $y=sin(x)$ for $x$ between $-4$ and 4.
+\item $y=x^{2}$ for $x$ between $-2$ and 2.
+\item $y=\begin{cases}
+1 & \text{ if }0\leq x\leq3\\
+0 & \text{ if }-3\leq x<0
+\end{cases}$
+\end{enumerate}
+
+For function (a) use red color and line type ``l''; for function
+(b) use green color and line type ``p'' and for function (c) use
+blue color and line type ``o''. Include a title and a legend to
+your plot (Hint: use function legend()).
+
+\vspace{5mm}
+\item In the lab session, we used aov() for one-way ANOVA analysis. Please write your own one-way ANOVA function in R which takes two vectors (i.e. data and group labels) as input and the F-test result (e.g. reject null hypothesis or not) as output. You don't have to output the entire ANOVA table. 
+\end{enumerate}
+
+\end{document}
